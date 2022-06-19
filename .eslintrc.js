@@ -5,7 +5,7 @@ module.exports = {
   },
   "ignorePatterns": [
     ".eslintrc.js",
-    "dist/**",
+    "example/dist/**",
     "webpack.config.js"
   ],
   'extends': [
@@ -21,6 +21,8 @@ module.exports = {
   'plugins': [
     '@typescript-eslint',
   ],
-  'rules': {
-  },
+  rules: {
+    "camelcase": 1,
+    "@typescript-eslint/naming-convention": 1
+  }
 };

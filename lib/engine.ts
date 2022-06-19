@@ -16,7 +16,7 @@ export default class Engine {
             let hasBeenHandled = false
             for (const system of this.game.systems) {
                 if (system.filter(entity)) {
-                    system.entity_queue.push(entity)
+                    system.entityQueue.push(entity)
                     hasBeenHandled = true
                 }
             }
@@ -26,7 +26,7 @@ export default class Engine {
             }
         }
         for (const system of this.game.systems) {
-            system.handle_entites()
+            system.handleEntites()
         }
         // requestAnimationFrame(this.update.bind(this))
     }
