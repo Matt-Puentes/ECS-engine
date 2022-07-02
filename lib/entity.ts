@@ -1,10 +1,17 @@
 import Component from "./component"
 
-export type Entity = { [key: string]: Component }
+export type Entity = { [key: string]: Component | Component[] }
+
 export function newEntity(...components: Component[]): Entity {
-    const entity: { [key: string]: Component } = {}
+    const entity: Entity = {}
     for (const component of components) {
-        entity[component.name] = component
+        if (!component.allowMultiple) {
+            entity[component.name] = component
+        } else if (!(component.name in entity)) {
+            entity[component.name] = [component]
+        } else {
+            (entity[component.name] as Component[]).push(component)
+        }
     }
     return entity
 }

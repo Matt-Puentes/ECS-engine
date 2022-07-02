@@ -11,7 +11,6 @@ export default class Engine {
         this.update()
     }
     update() {
-        console.log("update1000")
         for (const entity of this.game.entities) {
             let hasBeenHandled = false
             for (const system of this.game.systems) {
@@ -25,9 +24,15 @@ export default class Engine {
                 console.log(entity)
             }
         }
+
+        // sort the systems in priority-order, high to low
+        this.game.systems.sort((a, b) => b.priority - a.priority)
+
         for (const system of this.game.systems) {
             system.handleEntites()
+            system.clearEntites()
         }
-        // requestAnimationFrame(this.update.bind(this))
+
+        requestAnimationFrame(this.update.bind(this))
     }
 }

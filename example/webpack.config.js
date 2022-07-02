@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
   mode: 'development',
   entry: './example/index.ts',
@@ -10,6 +11,10 @@ module.exports = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
@@ -23,6 +28,11 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
         template: 'example/index.html'
+    }),
+    new CopyPlugin({
+      patterns: [
+        path.resolve(__dirname, "style.css")
+      ],
     })
   ],
   devServer: {

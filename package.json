@@ -7,9 +7,12 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.28.0",
     "@typescript-eslint/parser": "^5.28.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.1",
     "eslint": "^8.17.0",
     "eslint-config-google": "^0.14.0",
     "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.1",
     "ts-loader": "^9.3.0",
     "typescript": "^4.7.4",
     "webpack": "^5.73.0",
@@ -19,5 +22,7 @@
   "scripts": {
     "serve-example": "webpack serve -c example/webpack.config.js",
     "build-example": "webpack -c example/webpack.config.js"
-  }
+  },
+  "repository": "git@github.com:Matt-Puentes/ECS-engine.git",
+  "author": "Matt-Puentes <matt.puentes@gmail.com>"
 }
